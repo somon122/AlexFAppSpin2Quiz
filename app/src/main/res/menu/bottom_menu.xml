@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_Game"
+        android:orderInCategory="100"
+        android:title="Game"
+        android:icon="@drawable/person"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_Spinning"
+        android:orderInCategory="100"
+        android:title="Earning"
+        android:icon="@drawable/person"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_Earning"
+        android:orderInCategory="100"
+        android:title="Profile"
+        android:icon="@drawable/person"
+        app:showAsAction="never" />
+
+
+</menu>
