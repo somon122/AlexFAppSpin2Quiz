@@ -31,6 +31,7 @@
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:background="@drawable/back_design"
             android:paddingTop="50dp"
             android:paddingBottom="100dp"
@@ -59,7 +60,7 @@
                             android:id="@+id/profileCircleImageView"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
-                            android:src="@drawable/person" />
+                            android:src="@drawable/img2" />
 
 
                     </LinearLayout>
@@ -91,6 +92,16 @@
 
                     </LinearLayout>
                 </LinearLayout>
+
+            <TextView
+                android:id="@+id/profileUserName"
+                android:textColor="@color/colorWhite"
+                android:text="Name"
+                android:paddingStart="10dp"
+                android:textSize="17sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
         </LinearLayout>
 
 
@@ -109,7 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:background="@color/colorWhite"
+                android:background="@color/colorPurpleLite"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -124,7 +135,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Total withdraw"
-                        android:textColor="@color/colorBlack" />
+                        android:textColor="@color/colorWhite" />
 
                     <TextView
                         android:id="@+id/profileTotalWithdraw"
@@ -132,7 +143,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="00"
-                        android:textColor="@color/colorBlack" />
+                        android:textColor="@color/colorWhite" />
 
                 </LinearLayout>
 
@@ -175,8 +186,10 @@
             app:layout_constraintTop_toBottomOf="@+id/cardView2">
 
             <LinearLayout
+                android:id="@+id/profileHistoryShowBtn"
                 android:layout_gravity="center"
                 android:gravity="center"
+                android:paddingStart="20dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -193,11 +206,12 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:gravity="center"
+                    android:gravity="end"
+                    android:paddingEnd="30dp"
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:background="@drawable/history"
+                        android:background="@drawable/arrow_forward"
                         android:layout_width="30dp"
                         android:layout_height="30dp"/>
 
@@ -207,7 +221,10 @@
 
         </androidx.cardview.widget.CardView>
 
-          <androidx.cardview.widget.CardView
+
+
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/cardView4"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -218,15 +235,17 @@
             app:layout_constraintTop_toBottomOf="@+id/cardView3">
 
               <LinearLayout
+                  android:id="@+id/profileInviteFriend"
                   android:layout_gravity="center"
                   android:gravity="center"
+                  android:paddingStart="20dp"
                   android:orientation="horizontal"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content">
 
                   <TextView
                       android:textSize="17sp"
-                      android:text="Withdraw History"
+                      android:text="Invite Friend"
                       android:textColor="@color/colorPrimaryDark"
                       android:layout_width="0dp"
                       android:layout_weight="1"
@@ -236,11 +255,12 @@
                       android:layout_width="0dp"
                       android:layout_weight="1"
                       android:layout_gravity="center"
-                      android:gravity="center"
+                      android:gravity="end"
+                      android:paddingEnd="30dp"
                       android:layout_height="wrap_content">
 
                       <TextView
-                          android:background="@drawable/history"
+                          android:background="@drawable/arrow_forward"
                           android:layout_width="30dp"
                           android:layout_height="30dp"/>
 
@@ -249,6 +269,237 @@
               </LinearLayout>
 
           </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView5"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView4">
+
+            <LinearLayout
+                android:id="@+id/profileSocialGroup"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingStart="20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="17sp"
+                    android:text="Social Group"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:gravity="end"
+                    android:paddingEnd="30dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:background="@drawable/arrow_forward"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView6"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView5">
+
+            <LinearLayout
+                android:id="@+id/profileAboutUs"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingStart="20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="17sp"
+                    android:text="About Us"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:gravity="end"
+                    android:paddingEnd="30dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:background="@drawable/arrow_forward"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView44"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView6">
+
+            <LinearLayout
+                android:id="@+id/profilePrivacyPolicy"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingStart="20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="17sp"
+                    android:text="Privacy Policy"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:gravity="end"
+                    android:paddingEnd="30dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:background="@drawable/arrow_forward"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView443"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView44">
+
+            <LinearLayout
+                android:id="@+id/profileDeveloperOption"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingStart="20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="17sp"
+                    android:text="Developer Connect"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:gravity="end"
+                    android:paddingEnd="30dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:background="@drawable/code"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView4433"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView443">
+
+            <LinearLayout
+                android:id="@+id/profileLogout"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingStart="20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="17sp"
+                    android:text="Logout"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:gravity="end"
+                    android:paddingEnd="30dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:background="@drawable/logout"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
 
 

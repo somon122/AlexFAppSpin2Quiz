@@ -19,9 +19,7 @@ import com.world_tech_point.visiting_earnapp.R;
 
 import java.util.Random;
 
-import static kotlin.text.Typography.degree;
-
-public class SpinningActivity extends AppCompatActivity {
+public class Spin2Activity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -39,19 +37,20 @@ public class SpinningActivity extends AppCompatActivity {
     private MediaPlayer player;
     int score;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_spinning);
+        setContentView(R.layout.activity_spin2);
 
-        Toolbar toolbar = findViewById(R.id.spin1ToolBar);
+        Toolbar toolbar = findViewById(R.id.spin2ToolBar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         r = new Random();
-        wheelImage = findViewById(R.id.wheelImage);
-        tapBtn = findViewById(R.id.wheelTapBtn);
+        wheelImage = findViewById(R.id.wheelImage2);
+        tapBtn = findViewById(R.id.wheelTapBtn2);
 
         tapBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +69,7 @@ public class SpinningActivity extends AppCompatActivity {
                         public void onAnimationStart(Animation animation) {
 
                             if (player == null){
-                                player = MediaPlayer.create(SpinningActivity.this,R.raw.sound);
+                                player = MediaPlayer.create(Spin2Activity.this,R.raw.sound);
                                 player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                                     @Override
                                     public void onCompletion(MediaPlayer mediaPlayer) {
@@ -101,8 +100,11 @@ public class SpinningActivity extends AppCompatActivity {
 
                 }
 
+
             }
         });
+
+
     }
 
     private void stopPlayer() {

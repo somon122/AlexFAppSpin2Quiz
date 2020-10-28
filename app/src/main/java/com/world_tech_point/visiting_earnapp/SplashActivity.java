@@ -15,6 +15,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.startapp.sdk.adsbase.StartAppAd;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
@@ -36,7 +39,9 @@ public class SplashActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
 
-        //countryName();
+        StartAppAd.disableSplash();
+        StartAppAd.disableAutoInterstitial();
+
 
         top = AnimationUtils.loadAnimation(this,R.anim.top_animation);
         bottom = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
@@ -55,24 +60,5 @@ public class SplashActivity extends AppCompatActivity {
 
     }
 
-    private void countryName(){
 
-        Geocoder geoCoder = new Geocoder(getBaseContext(), Locale.getDefault());
-        try {
-            List<Address> addresses = geoCoder.getFromLocation(37.090240, -95.712891, 1);
-
-            String add = "";
-            if (addresses.size() > 0)
-            {
-                for (int i=0; i<addresses.get(0).getMaxAddressLineIndex();i++)
-                    add += addresses.get(0).getAddressLine(i) + "\n";
-            }
-
-            Toast.makeText(this, ""+add, Toast.LENGTH_SHORT).show();
-        }
-        catch (IOException e1) {
-            e1.printStackTrace();
-        }
-
-    }
 }

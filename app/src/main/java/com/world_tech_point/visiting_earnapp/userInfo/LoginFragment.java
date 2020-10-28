@@ -1,5 +1,6 @@
 package com.world_tech_point.visiting_earnapp.userInfo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputLayout;
 import com.world_tech_point.visiting_earnapp.API_Method;
+import com.world_tech_point.visiting_earnapp.MainActivity;
 import com.world_tech_point.visiting_earnapp.R;
 
 import org.json.JSONArray;
@@ -30,6 +32,8 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import es.dmoral.toasty.Toasty;
 
 public class LoginFragment extends Fragment {
 
@@ -98,14 +102,17 @@ public class LoginFragment extends Fragment {
                         JSONArray jsonArray = new JSONArray(res);
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject dataObj = jsonArray.getJSONObject(i);
-                            String userId = dataObj.getString("userId");
+                            int userId = dataObj.getInt("id");
                             String userName = dataObj.getString("userName");
                             String imageUrl = dataObj.getString("imageUrl");
                             String number = dataObj.getString("number");
                             String email = dataObj.getString("email");
                             String refer_code = dataObj.getString("refer_code");
                             SaveUserInfo saveUserInfo = new SaveUserInfo(getContext());
-                            saveUserInfo.dataStore(userId, userName,imageUrl, number, email, refer_code);
+                            saveUserInfo.dataStore(String.valueOf(userId), userName,imageUrl, number, email, refer_code);
+                            Toasty.success(getContext(),"Login Success",Toasty.LENGTH_SHORT).show();
+                            startActivity(new Intent(getContext(), MainActivity.class));
+                            getActivity().finish();
                         }
                     } else if (obj.getString("response").equals("not_match")) {
 
@@ -115,7 +122,7 @@ public class LoginFragment extends Fragment {
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(getContext(), "Problem", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Problem : "+e, Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {

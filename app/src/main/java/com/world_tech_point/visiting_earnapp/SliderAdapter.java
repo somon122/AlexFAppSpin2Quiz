@@ -16,6 +16,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.squareup.picasso.Picasso;
 import com.world_tech_point.visiting_earnapp.earning.QuizActivity;
+import com.world_tech_point.visiting_earnapp.earning.Spin2Activity;
 import com.world_tech_point.visiting_earnapp.earning.SpinningActivity;
 import com.world_tech_point.visiting_earnapp.withdraw.WalletActivity;
 
@@ -64,7 +65,7 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.ViewHolder
        if (position==0){
            context.startActivity(new Intent(context, QuizActivity.class));
        } else if (position == 1) {
-           context.startActivity(new Intent(context, WalletActivity.class));
+           context.startActivity(new Intent(context, Spin2Activity.class));
        }else if (position == 2) {
            context.startActivity(new Intent(context, SpinningActivity.class));
        }else {
